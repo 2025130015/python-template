@@ -26,15 +26,16 @@ jobs:
           set -euo pipefail
           shopt -s nullglob
 
-          count = 0
+          count=0
           for in_file in tests/case*.in; do
-            count = $((count + 1))
-            base = "${in_file##*/}"
-            base = "${base%.in}"
-            out_file = "tests/${base}.out"
+            count=$((count + 1))
+            base="${in_file##*/}"
+            base="${base%.in}"
+            out_file="tests/${base}.out"
 
             python main.py < "$in_file" | diff -q - "$out_file"
           done
+
 
 
 
