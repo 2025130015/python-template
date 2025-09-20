@@ -26,6 +26,8 @@ jobs:
           set -euo pipefail
           shopt -s nullglob
 
+          cd p2
+
           count=0
           for in_file in tests/case*.in; do
             count=$((count + 1))
